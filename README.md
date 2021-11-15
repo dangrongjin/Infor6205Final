@@ -1,3 +1,3 @@
 # Infor6205Final
 
-#rongjin dang have been accessed
+#rongjin dang had been accessed
