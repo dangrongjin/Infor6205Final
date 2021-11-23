@@ -1,3 +1,5 @@
+package src;
+
 import java.text.Collator;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -8,7 +10,7 @@ import java.util.Locale;
  * Date: 11/7/21 11:53
  **/
 
-public class ChineseComparator implements Comparator<String> {
+public  class ChineseComparator implements Comparator<String> {
 
     Collator collator = Collator.getInstance(Locale.CHINA);
 
@@ -18,7 +20,7 @@ public class ChineseComparator implements Comparator<String> {
 
     public static void main(String[] args) {
         // "啊","这", "都", "能", "赢" => "a", "zhe", "dou", "neng", "ying"
-        String[] words = new String[]{"啊","这", "都", "能", "赢"};
+        String[] words = new String[]{"啊啊","啊波", "宝宝", "宝贝", "包啊"};
         Arrays.sort(words, new ChineseComparator());
 
         for(String word : words){
