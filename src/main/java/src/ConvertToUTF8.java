@@ -1,5 +1,10 @@
 package src;
 
+
+/**
+ * 暂时没有用
+ */
+
 public class ConvertToUTF8 {
 
     public static String convertStringToUTF8(String s) {
