@@ -23,8 +23,8 @@ public class ReadTxt  {
         String [] pinyinName = null;
 
         try {
-            Path path = Paths.get("src/main/resources/shuffledChinese.txt");
-           // Path path = Paths.get("src/main/resources/testChinese.txt");
+           // Path path = Paths.get("src/main/resources/shuffledChinese.txt");
+            Path path = Paths.get("src/main/resources/test11.txt");
             byte[] data = Files.readAllBytes(path);
             String s = new String(data, "utf-8");
             pinyinName = s.split("\\r?\\n");
@@ -55,8 +55,8 @@ public class ReadTxt  {
         String [] pinyinName = null;
 
         try {
-             Path path = Paths.get("src/main/resources/shuffledChinese.txt");
-           //Path path = Paths.get("src/main/resources/testChinese.txt");
+           //  Path path = Paths.get("src/main/resources/shuffledChinese.txt");
+           Path path = Paths.get("src/main/resources/test11.txt");
             byte[] data = Files.readAllBytes(path);
             String result = new String(data, "utf-8");
             String s = PinYin4jUtils.hanziToPinyin(result);
