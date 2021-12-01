@@ -43,6 +43,10 @@ public class ConvertToUTF8 {
     }
 
     public static void main(String[] args) {
-        System.out.println(convertStringToUTF8("啊"));
+        System.out.println(convertStringToUTF8("欣"));
+        System.out.println(convertStringToUTF8("鑫"));
+        System.out.println(convertStringToUTF8("新"));
+        System.out.println(convertStringToUTF8("心"));
+        System.out.println(convertStringToUTF8("馨"));
     }
 }

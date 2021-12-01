@@ -14,25 +14,49 @@ import java.util.Arrays;
 public class ReadTxt  {
 
 
+
+
+    public static String [] getAllChineseName(){
+        HanyuPinyinOutputFormat outputF = new HanyuPinyinOutputFormat();
+        //2.设置好格式
+
+        String [] pinyinName = null;
+
+        try {
+            Path path = Paths.get("src/main/resources/shuffledChinese.txt");
+           // Path path = Paths.get("src/main/resources/testChinese.txt");
+            byte[] data = Files.readAllBytes(path);
+            String s = new String(data, "utf-8");
+            pinyinName = s.split("\\r?\\n");
+
+        }
+        catch (IOException e){
+
+        }
+
+
+        return pinyinName;
+
+    }
+
+
     /**
      *
      * @return 以数组的形式返回所有名字的拼音
      * @throws IOException
      */
-    public static  String [] getAllChineseName()  {
+    public static  String [] getAllChineseNameToPinyin()  {
 
 
         //1.创建一个格式化输出对象
         HanyuPinyinOutputFormat outputF = new HanyuPinyinOutputFormat();
         //2.设置好格式
-        outputF.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
-        outputF.setCaseType(HanyuPinyinCaseType.LOWERCASE);
 
         String [] pinyinName = null;
 
         try {
-
-            Path path = Paths.get("src/main/resources/shuffledChinese.txt");
+             Path path = Paths.get("src/main/resources/shuffledChinese.txt");
+           //Path path = Paths.get("src/main/resources/testChinese.txt");
             byte[] data = Files.readAllBytes(path);
             String result = new String(data, "utf-8");
             String s = PinYin4jUtils.hanziToPinyin(result);
@@ -53,8 +77,8 @@ public class ReadTxt  {
     public static void main(String[] args) throws IOException {
 
         String [] s = getAllChineseName();
-        System.out.println(s[0]);
-
+//        System.out.println(s[0]);
+//        System.out.println(s.length);
         Arrays.stream(s).forEach(System.out::println);
 
        

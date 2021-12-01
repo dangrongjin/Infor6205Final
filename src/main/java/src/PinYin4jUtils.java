@@ -120,7 +120,7 @@ public class PinYin4jUtils {
         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();
         // 输出设置，大小写，音标方式
         defaultFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
-        defaultFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+        defaultFormat.setToneType(HanyuPinyinToneType.WITH_TONE_NUMBER);
 
         String pinyingStr = "";
         try {

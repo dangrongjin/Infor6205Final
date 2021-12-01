@@ -20,13 +20,12 @@ public  class ChineseComparator implements Comparator<String> {
 
     public static void main(String[] args) {
         // "啊","这", "都", "能", "赢" => "a", "zhe", "dou", "neng", "ying"
-        String[] words = new String[]{"啊啊","啊波", "宝宝", "宝贝", "包啊"};
+         String[] words = new String[]{"心", "欣","鑫","馨","新"};
+        // String[] words = new String[]{"鑫", "欣"};
         Arrays.sort(words, new ChineseComparator());
-
         for(String word : words){
             System.out.print(word + ", ");
         }
-
         System.out.println();
     }
 }
