@@ -1,5 +1,8 @@
 package FinalProject;
 
+import edu.neu.coe.huskySort.sort.huskySort.PureHuskySort;
+import edu.neu.coe.huskySort.sort.huskySortUtils.HuskyCoderFactory;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,8 +23,10 @@ public class MSDBenchmarkTest {
 
 
     public static void main(String[] args) {
-        msdBenchmarkRes();
-//        quicksortBenchmarkRes();
+        quicksortBenchmarkRes();
+         msdBenchmarkRes();
+
+
 //        double time1 = t1.repeat(5, () -> list, t -> {
 //
 //            Arrays.sort(t.get(0));
@@ -35,54 +40,56 @@ public class MSDBenchmarkTest {
 //        System.out.println(time1);
     }
 
+
+
     /**
      *
      */
     public  static void quicksortBenchmarkRes(){
-//            double time1 = t1.repeat(5, () -> list, t -> {
-//
-//                quick.quicksort(t.get(0),t.get(1));
-//                return null;
-//            }, t -> {
-//                preDataProcess(t,100000);
-//                return null;
-//            }, null);
-//
-//            t1.resume();
-//            System.out.println(time1);
-//
-//            double time2 = t1.repeat(5, () -> list, t -> {
-//                quick.quicksort(t.get(0),t.get(1));
-//                return null;
-//            }, t -> {
-//                preDataProcess(t,200000);
-//                return null;
-//            }, null);
-//
-//            t1.resume();
-//            System.out.println(time2);
-//
-//            double time3 = t1.repeat(5, () -> list, t -> {
-//                quick.quicksort(t.get(0),t.get(1));
-//                return null;
-//            }, t -> {
-//                preDataProcess(t,400000);
-//                return null;
-//            }, null);
-//
-//            t1.resume();
-//            System.out.println(time3);
-//
-//            double time4 = t1.repeat(5, () -> list, t -> {
-//                quick.quicksort(t.get(0),t.get(1));
-//                return null;
-//            }, t -> {
-//                preDataProcess(t,800000);
-//                return null;
-//            }, null);
-//
-//            t1.resume();
-//            System.out.println(time4);
+            double time1 = t1.repeat(5, () -> list, t -> {
+
+                quick.quicksort(t.get(0),t.get(1));
+                return null;
+            }, t -> {
+                preDataProcess(t,100000);
+                return null;
+            }, null);
+
+            t1.resume();
+            System.out.println(time1);
+
+            double time2 = t1.repeat(5, () -> list, t -> {
+                quick.quicksort(t.get(0),t.get(1));
+                return null;
+            }, t -> {
+                preDataProcess(t,200000);
+                return null;
+            }, null);
+
+            t1.resume();
+            System.out.println(time2);
+
+            double time3 = t1.repeat(5, () -> list, t -> {
+                quick.quicksort(t.get(0),t.get(1));
+                return null;
+            }, t -> {
+                preDataProcess(t,400000);
+                return null;
+            }, null);
+
+            t1.resume();
+            System.out.println(time3);
+
+            double time4 = t1.repeat(5, () -> list, t -> {
+                quick.quicksort(t.get(0),t.get(1));
+                return null;
+            }, t -> {
+                preDataProcess(t,800000);
+                return null;
+            }, null);
+
+            t1.resume();
+            System.out.println(time4);
 
             double time5 = t1.repeat(5, () -> list, t -> {
                 quick.quicksort(t.get(0),t.get(1));
@@ -101,51 +108,51 @@ public class MSDBenchmarkTest {
      */
     public static void msdBenchmarkRes(){
 
-//            double time1 = t1.repeat(5, () -> list, t -> {
-//                msd.msdSort(t.get(0),t.get(1));
-//                return null;
-//            }, t -> {
-//                preDataProcess(t,100000);
-//                return null;
-//            }, null);
-//
-//            t1.resume();
-//            System.out.println(time1);
-//
-//            double time2 = t1.repeat(5, () -> list, t -> {
-//                msd.msdSort(t.get(0),t.get(1));
-//                return null;
-//            }, t -> {
-//                preDataProcess(t,200000);
-//                return null;
-//            }, null);
-//
-//            t1.resume();
-//            System.out.println(time2);
-//
-//            double time3 = t1.repeat(5, () -> list, t -> {
-//                msd.msdSort(t.get(0),t.get(1));
-//                return null;
-//            }, t -> {
-//                preDataProcess(t,400000);
-//                return null;
-//            }, null);
-//
-//            t1.resume();
-//            System.out.println(time3);
-//
-//            double time4 = t1.repeat(5, () -> list, t -> {
-//                msd.msdSort(t.get(0),t.get(1));
-//                return null;
-//            }, t -> {
-//                preDataProcess(t,800000);
-//                return null;
-//            }, null);
-//
-//            t1.resume();
-//            System.out.println(time4);
+            double time1 = t1.repeat(5, () -> list, t -> {
+                msd.msdSort(t.get(0),t.get(1));
+                return null;
+            }, t -> {
+                preDataProcess(t,100000);
+                return null;
+            }, null);
 
-            double time5 = t1.repeat(20, () -> list, t -> {
+            t1.resume();
+            System.out.println(time1);
+
+            double time2 = t1.repeat(5, () -> list, t -> {
+                msd.msdSort(t.get(0),t.get(1));
+                return null;
+            }, t -> {
+                preDataProcess(t,200000);
+                return null;
+            }, null);
+
+            t1.resume();
+            System.out.println(time2);
+
+            double time3 = t1.repeat(5, () -> list, t -> {
+                msd.msdSort(t.get(0),t.get(1));
+                return null;
+            }, t -> {
+                preDataProcess(t,400000);
+                return null;
+            }, null);
+
+            t1.resume();
+            System.out.println(time3);
+
+            double time4 = t1.repeat(5, () -> list, t -> {
+                msd.msdSort(t.get(0),t.get(1));
+                return null;
+            }, t -> {
+                preDataProcess(t,800000);
+                return null;
+            }, null);
+
+            t1.resume();
+            System.out.println(time4);
+
+            double time5 = t1.repeat(5, () -> list, t -> {
                 msd.msdSort(t.get(0),t.get(1));
                 return null;
             }, t -> {

@@ -1,6 +1,8 @@
 package FinalProject.msdSortPlus;
 
 import FinalProject.*;
+import edu.neu.coe.huskySort.sort.huskySort.PureHuskySort;
+import edu.neu.coe.huskySort.sort.huskySortUtils.HuskyCoderFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,17 +21,50 @@ public class MSDPlusBenchmarkTest {
 
    static HashMap<String,Object> map  = new HashMap<>();
    static Timer t1 = new Timer();
-
+    static PureHuskySort pureHuskySort=new PureHuskySort(HuskyCoderFactory.englishCoder,false,false);
 
 
     public static void main(String[] args) {
         msdBenchmarkRes();
-
+        huskysortBenchmarkRes();
+        quicksortBenchmarkRes();
     }
+
+
+
+    public static void quicksortBenchmarkRes(){
+        double time5 = t1.repeat(2, () -> map, t -> {
+                    quickSort.quicksort((String[]) map.get("list"));
+                    return t;
+                }, t -> preDataProcess(t,1000000),
+                t -> { postDataProcess(t);
+                }
+        );
+
+        t1.resume();
+        System.out.println(time5 +"the max");
+    }
+
 
     /**
      *
      */
+
+
+    public static void huskysortBenchmarkRes(){
+        double time5 = t1.repeat(2, () -> map, t -> {
+                    pureHuskySort.sort((String[]) map.get("list"));
+                    return t;
+                }, t -> preDataProcess(t,1000000),
+                t -> { postDataProcess(t);
+                }
+        );
+
+        t1.resume();
+        System.out.println(time5 +"the max");
+
+
+    }
 
 
     /**
