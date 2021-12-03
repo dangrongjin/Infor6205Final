@@ -53,7 +53,7 @@ public class MSDPlusBenchmarkTest {
     }
 
     /**
-     *  Data preprocessing, list.get(0) pinyinNames list.get(1)chineseNames
+     *  Data preprocessing, map.get("list") pinyinNames map.get(resmap) <pinyinnames,chineseNames>  One-to-one correspondence
      *   n: choose initial data interception length 初始数据截取长度
      * @param map
      * @param n  choose initial data interception length 初始数据截取长度
