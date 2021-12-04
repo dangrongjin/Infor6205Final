@@ -66,16 +66,6 @@ public class lsdTest {
 
     @Test
     public void test7(){
-        String [] input ={"江文", "姜文"};
-        String [] except =  {"姜文", "江文"};
-        LSD.sort(input);
-        assertArrayEquals(input, except);
-    }
-
-
-
-    @Test
-    public void test8(){
         String [] input ={"李新", "李溪","李兴"};
         String [] except =  {"李溪", "李新","李兴"};
         LSD.sort(input);
@@ -83,7 +73,7 @@ public class lsdTest {
     }
 
     @Test
-    public void test9(){
+    public void test8(){
         String [] input ={"王慈", "王得","王啊","王波"};
         String [] except =  {"王啊", "王波","王慈","王得"};
         LSD.sort(input);
@@ -91,14 +81,14 @@ public class lsdTest {
     }
 
     @Test
-    public void test10(){
+    public void test9(){
         String [] input ={"王汪汪", "王啊得","王啊啊","王啊"};
         String [] except =  {"王啊", "王啊啊","王啊得","王汪汪"};
         LSD.sort(input);
         assertArrayEquals(input, except);
     }
     @Test
-    public void test11(){
+    public void test10(){
         String [] input  ={"刘持平", "洪文胜","樊辉辉","苏会敏","高民政","曹玉德","袁继鹏","舒冬梅","杨腊香","许凤山","王广风","黄锡鸿"};
         String [] except ={"曹玉德", "樊辉辉","高民政","洪文胜","黄锡鸿","刘持平","舒冬梅","苏会敏","王广风","许凤山","杨腊香","袁继鹏"};
         LSD.sort(input);
