@@ -3,10 +3,8 @@ package FinalProject.sortWithMap;
 
 
 
-import FinalProject.common.ConvertToUTF8;
 import FinalProject.common.ReadTxt;
 import FinalProject.common.Timer;
-import edu.neu.coe.huskySort.sort.huskySort.PureHuskySort;
 import edu.neu.coe.huskySort.sort.huskySortUtils.HuskyCoderFactory;
 
 import java.util.ArrayList;

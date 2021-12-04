@@ -1,4 +1,4 @@
-package edu.neu.coe.huskySort.sort.huskySort;
+package FinalProject.sortWithMap;
 
 import FinalProject.common.ConvertToUTF8;
 import FinalProject.common.PinYin4jUtils;

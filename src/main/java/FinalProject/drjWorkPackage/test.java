@@ -12,7 +12,7 @@ public class test {
     }
 
     public static void test(){
-        String [] s = {"姜文", "江文"};
+        String [] s = {"刘持平", "洪文胜","樊辉辉","苏会敏","高民政","曹玉德","袁继鹏","舒冬梅","杨腊香","许凤山","王广风","黄锡鸿"};
         String [] coder = new String[s.length];
         System.out.println("原始数据--------------------------");
         for (int i = 0; i < s.length; i++) {
