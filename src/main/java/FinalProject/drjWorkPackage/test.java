@@ -3,11 +3,18 @@ package FinalProject.drjWorkPackage;
 import FinalProject.common.ConvertToUTF8;
 import FinalProject.common.PinYin4jUtils;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 
 public class test {
     public static void main(String[] args) {
 
-        test();
+
+
+
+        //test();
 
     }
 

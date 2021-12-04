@@ -5,6 +5,9 @@ import FinalProject.common.ReadTxt;
 import FinalProject.common.Timer;
 
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class auxBenchmarkTest {
@@ -16,9 +19,6 @@ public class auxBenchmarkTest {
     static  LSD  lsd  = new LSD();
 
 
-    /**
-     *   using the [] [] is the same efficiency as list
-     */
 
     static ArrayList<String []> list  = new ArrayList<>();
     static Timer t1 = new Timer();
@@ -33,6 +33,23 @@ public class auxBenchmarkTest {
         lsdsortBenchmarkRes();
         System.out.println("using aux-------------------------");
 
+
+    }
+
+    public static void output1000res(){
+        double time1 = t1.repeat(1, () -> list, t -> {
+                    msd.msdSort(t.get(0));
+                    return t;
+                }, t -> {
+                    preDataProcess(t,1000000);
+                    return null;
+                },t -> {
+                    productFirst1000Names(t);
+                }
+        );
+
+        t1.resume();
+        System.out.println("msdsort 100000 :"+time1);
 
     }
 
@@ -289,6 +306,30 @@ public class auxBenchmarkTest {
         list.clear();
         list.add(chineseNames);
         return list;
+    }
+
+    public static void productFirst1000Names(ArrayList list){
+
+        try {
+
+
+            File writename = new File("src/main/resources/output.txt");
+            writename.createNewFile(); // 创建新文件
+            BufferedWriter out = new BufferedWriter(new FileWriter(writename));
+
+
+
+
+
+            String [] res = (String []) list.get(0);
+            for (int i = 0; i < 1000; i++) {
+                out.write(res[i]+"\r\n"); // \r\n即为换行
+            }
+            out.flush();
+            out.close();
+         } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
