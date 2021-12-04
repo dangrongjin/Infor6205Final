@@ -1,5 +1,7 @@
 package edu.neu.coe.huskySort.sort.huskySort;
 
+import FinalProject.common.ConvertToUTF8;
+import FinalProject.common.PinYin4jUtils;
 import edu.neu.coe.huskySort.sort.huskySortUtils.Coding;
 import edu.neu.coe.huskySort.sort.huskySortUtils.HuskyCoder;
 import edu.neu.coe.huskySort.sort.huskySortUtils.HuskyCoderFactory;
@@ -9,6 +11,8 @@ import edu.neu.coe.huskySort.util.LazyLogger;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import static java.util.Arrays.binarySearch;
 
@@ -43,19 +47,30 @@ public class PureHuskySort<X extends Comparable<X>> {
     public void sort(final X[] xs) {
         // NOTE: we start with a random shuffle
         // This is necessary if we might be sorting a pre-sorted array. Otherwise, we usually don't need it.
+
         if (mayBeSorted) Collections.shuffle(Arrays.asList(xs));
         // NOTE: First pass where we code to longs and sort according to those.
-        final Coding coding = huskyCoder.huskyEncode(xs);
+        String[] pinyin=new String[xs.length];
+        Map<String,String> map=new HashMap<>();
+        for(int i=0;i<pinyin.length;i++){
+            String add=(String)xs[i];
+            pinyin[i]= PinYin4jUtils.hanziToPinyin(add)+" "+ ConvertToUTF8.convertStringToUTF8(add);
+            map.put(pinyin[i],add);
+        }
+        X[] chinesePinyin= (X[]) pinyin;
+        final Coding coding = huskyCoder.huskyEncode(chinesePinyin);
         final long[] longs = coding.longs;
-        introSort(xs, longs, 0, longs.length, 2 * floor_lg(xs.length));
-
+        introSort(chinesePinyin, longs, 0, longs.length, 2 * floor_lg(xs.length));
         // NOTE: Second pass (if required) to fix any remaining inversions.
         if (coding.perfect)
             return;
         if (useInsertionSort)
-            new InsertionSort<X>().mutatingSort(xs);
+            new InsertionSort<X>().mutatingSort(chinesePinyin);
         else
-            Arrays.sort(xs);
+            Arrays.sort(chinesePinyin);
+        for(int i=0;i<xs.length;i++){
+            xs[i]=(X)map.get(chinesePinyin[i]);
+        }
     }
 
     /**
