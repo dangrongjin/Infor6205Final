@@ -44,6 +44,14 @@ public class msdTest {
                 assertArrayEquals(input, except);
         }
 
+        //21 姓同 名不同
+        @Test
+        public void test21(){
+                String [] input ={"江文", "姜文"};
+                String [] except =  {"姜文", "江文"};
+                MSDSort.msdSort(input);
+                assertArrayEquals(input, except);
+        }
 
 
 
