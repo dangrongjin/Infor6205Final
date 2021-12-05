@@ -7,6 +7,9 @@ import FinalProject.common.ReadTxt;
 import FinalProject.common.Timer;
 import edu.neu.coe.huskySort.sort.huskySortUtils.HuskyCoderFactory;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 
@@ -37,7 +40,27 @@ public class mapBenchmarkTest {
         huskysortBenchmarkRes();
         System.out.println("keymap version------------------");
 
+//        output1000res();
+
     }
+
+    public static void output1000res(){
+        double time1 = t1.repeat(1, () -> list, t -> {
+            husky.sort(t.get(0));
+                    return t;
+                }, t -> {
+                    preDataProcess(t,1000000);
+                    return null;
+                },t -> {
+                    productFirst1000Names(t);
+                }
+        );
+
+        t1.resume();
+        System.out.println("完成输出1000");
+
+    }
+
     public static  void lsdsortBenchmarkRes(){
         double time1 = t1.repeat(5, () -> list, t -> {
 
@@ -351,6 +374,25 @@ public class mapBenchmarkTest {
         list.add(0,chineseNames);
         return list;
     }
+
+    public static void productFirst1000Names(ArrayList list){
+
+        try {
+
+            File writename = new File("src/main/resources/huskysortoutput.txt");
+            writename.createNewFile(); // 创建新文件
+            BufferedWriter out = new BufferedWriter(new FileWriter(writename));
+           String [] res = (String []) list.get(0);
+            for (int i = 0; i < 1000; i++) {
+                out.write(res[i]+"\r\n"); // \r\n即为换行
+            }
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
 

@@ -32,13 +32,14 @@ public class auxBenchmarkTest {
         timsortBenchmarkRes();
         lsdsortBenchmarkRes();
         System.out.println("using aux-------------------------");
+//           output1000res();
 
 
     }
 
     public static void output1000res(){
         double time1 = t1.repeat(1, () -> list, t -> {
-                    msd.msdSort(t.get(0));
+            lsd.sort(t.get(0));
                     return t;
                 }, t -> {
                     preDataProcess(t,1000000);
@@ -49,7 +50,7 @@ public class auxBenchmarkTest {
         );
 
         t1.resume();
-        System.out.println("msdsort 100000 :"+time1);
+        System.out.println("完成输出1000");
 
     }
 
@@ -312,15 +313,9 @@ public class auxBenchmarkTest {
 
         try {
 
-
-            File writename = new File("src/main/resources/output.txt");
+            File writename = new File("src/main/resources/lsdsortoutput.txt");
             writename.createNewFile(); // 创建新文件
             BufferedWriter out = new BufferedWriter(new FileWriter(writename));
-
-
-
-
-
             String [] res = (String []) list.get(0);
             for (int i = 0; i < 1000; i++) {
                 out.write(res[i]+"\r\n"); // \r\n即为换行
