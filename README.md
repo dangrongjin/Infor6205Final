@@ -1,4 +1,4 @@
-info6205 final project
+info6205 final project　thanks for peixin Yao  zixuan Zhu
 
 java/edu.neu.coe/
     /FinalProject/common
